@@ -20,4 +20,13 @@ public class UserController {
                 "picture", user.getPicture()
         );
     }
+    @GetMapping("/api/public/test")
+    public String testPublic() {
+        return "Backend activo y accesible";
+    }
+    @GetMapping("/api/public/health")
+    public String healthCheck() {
+        return "Backend activo";
+    }
+
 }

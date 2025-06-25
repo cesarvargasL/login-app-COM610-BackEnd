@@ -18,7 +18,7 @@ public class FirebaseSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
+        HttpSecurity httpSecurity = http
                 .cors() // Habilita CORS en Spring Security
                 .and()
                 .csrf(csrf -> csrf.disable())
@@ -37,7 +37,12 @@ public class FirebaseSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://login-app-com610-backend.onrender.com/"));
+        configuration.setAllowedOrigins(List.of(
+                "http://localhost:4200",
+                "https://login-app-com610-frontend.web.app",
+                "https://login-app-com610-backend.onrender.com"
+        ));
+
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
