@@ -38,7 +38,7 @@ public class FirebaseSecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of(
-                "http://localhost:4200",
+                "http://localhost:4200/auth/login",
                 "https://login-app-com610-frontend.web.app",
                 "https://login-app-com610-backend.onrender.com"
         ));
