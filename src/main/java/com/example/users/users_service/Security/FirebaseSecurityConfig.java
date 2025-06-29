@@ -39,7 +39,7 @@ public class FirebaseSecurityConfig {
         configuration.setAllowedOrigins(List.of(
             "http://localhost:4200",
             "https://com610-app.web.app",
-            "https://login-app-com610-backend.onrender.com"
+            "https://login-app-com610-backend-jd7t.onrender.com"
         ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
