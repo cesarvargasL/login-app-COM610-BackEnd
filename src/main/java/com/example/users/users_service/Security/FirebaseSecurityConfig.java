@@ -18,24 +18,18 @@ public class FirebaseSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-<<<<<<< HEAD
         http
-                .cors()
-=======
-        HttpSecurity httpSecurity = http
-                .cors() // Habilita CORS en Spring Security
->>>>>>> 69a4ebb1456638acb6339b94b809d3559431e57d
-                .and()
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/public/**").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .addFilterBefore(
-                        new FirebaseAuthenticationFilter(),
-                        UsernamePasswordAuthenticationFilter.class
-                );
-
+            .cors()
+            .and()
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/public/**").permitAll()
+                .anyRequest().authenticated()
+            )
+            .addFilterBefore(
+                new FirebaseAuthenticationFilter(),
+                UsernamePasswordAuthenticationFilter.class
+            );
         return http.build();
     }
 
@@ -43,11 +37,10 @@ public class FirebaseSecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of(
-                "http://localhost:4200/auth/login",
-                "https://com610-app.web.app",
-                "https://login-app-com610-backend.onrender.com"
+            "http://localhost:4200",
+            "https://com610-app.web.app",
+            "https://login-app-com610-backend.onrender.com"
         ));
-
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
